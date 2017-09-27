@@ -1,9 +1,19 @@
 language: node_js
-sudo: false
 node_js:
-  - "iojs"
-  - "8"
+- iojs
+- '8'
 install:
-  - npm install
+- npm install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: "S3 Bucket"
+  key: latest/InssetDevops.zip
+  application: InssetDevops
+  deployment_group: MyDeploymentGroup
+  secret_access_key:
+    secure: uxLDrl5v8p+24scKjNE9aSBkE+IX0ZIUyvDPg5P7yqhKQ1hlSryIkLYpUfKGLizoJBf13dED+OR0cjTRd2niyGvpZO3bnPQ+n6b2Kck37h/f1NharDYa09FrdhgxeIvylFbG69ym7VfmBFCaHpL39wNmIGbaU8ECp/HI+5RKSjLzAPZ8wzjWiSLjfaNjwAyHxVvth8TsfB8q2tGhLvhQkZK3ok+LuVxYpVuz1Ie8WsByA/szmXHW+hi8Suq2rlvakcgmet/p+YBhYRl2Of97bYnFk2CCvkei95FBf29PMzz7NFacDKe7+2GXA8azasw+kMPaxujwA5Uo4jhxFiGoMRUU9jpGXtEXFw2uIfctJ8gTmWzDzZtPEW2Z9VC3yhdeLvUMUdnbrZJCWcQujf3JB20rxII8d9IzP2vRq+y3AL1VKuTzL+olZxwsz0BVkfs/7loOiv69R/UMjQTndkHVMGmLD3UraLd+jSdCWRQ4w3w1EdceT65zY8dfLSex97jo8vllSH7xeT3PHw8lh41ByUWAMFQBk2S6pYZFvCQhGDdgqQR2ImmFSKbqypXbtPa/cSWiiPSMj3Ujh/aibE6MgsL8sbz3fEBLUTFzN0G1pntHC2AYW1HXHnmFLEtGcxbSbY0m5CYFd0W2+SBjoMZ0Ow4XPpE7+V/jkOz1KJ8y1Bg=
+  access_key_id:
+    secure: gT48ok0yxhA0yEYv/X5scBeQtow0l27NNeho2v+Yx+4XAy1jKqyH4KIAGyLDcFoTI6JEfv707fjQ5GiF8eJuKZms0OZz8gEzCzB4mz9eoJqBUKvNcfpr1cL+ykZNl2/PdKHFMZ/+QVy+C+FdxXoSJmDelxgNBT2OwHY/jmBGC4bkQE0+7/qESw9G4j4mgqpNSoU7xPN9f64QlJf1M0VwIjE/MguoR9SaR0Hab1jE+qCqgqHimL5LthskTexkv+XZzPkvvz8rc2PiQkdxwVHhr3nBG2qe3tdrEtHX801kby9ugomPVYOF9IDEl35ZrLerpF78AHsOc5prWS4zb/RrG/6XMh9j1V8OWMeUR6EVo8pGgKw/uH4THg0jTPI2IAiF/4l5yUlS+O9tYHuXHLzEZ51BlocZ7clB7xho6EJh+wfeQZLrgXoPl9EJz8qO4BesgUkhs4wrNhyOzWuc2biJAMiIbUiYgcfu3Nil7fOcenY36v5/56fgXGoOExn7R6D1ui/au6rmzxREEIcLZDJohHRqjpmZb5N5x5UXWmEcrFFRv35z+xXwF23o7UbngX8y1r/UJ8PFv5/bwbnr+WTdQaBFfHci+klSAVHq52r/ZdFvHZJqfyJ/wV7Lhb4Rr2JkjKTbjR5rZTTEM4GG8h0UbcBheQ2o1tK4/tNIDh5jToE=
+  on:
+    branch: master
