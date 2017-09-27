@@ -1,0 +1,96 @@
+
+.collection li:hover{
+	cursor: pointer;
+	background: #303131 !important;
+	color: white;
+}
+
+h1 {
+	text-align: center;
+	font-family: 'Anton', sans-serif;
+}
+
+body{
+	background: #f7f7f7;
+}
+/* CUSTOM */ 
+
+.Nfloat{
+    clear: both;
+}
+
+#container {
+  padding-left: 200px;
+}
+
+/* MAIN */ 
+
+.main-content{
+	padding-right: 2%;
+	padding-left: 20%;
+}
+
+.main-content:first-child{
+	width: 100%;
+	margin: 0 auto;
+}
+
+
+
+/* MENU */ 
+
+#menu #slide-out{
+	background:  #303131;
+	border-right: 5px solid #26a69a;
+}
+
+#menu #slide-out i{
+	color :#E6E6E6;
+}
+
+#menu #slide-out .collapsible-body{
+	background: #172B46;
+}
+
+#menu #slide-out a{
+	color:  #E6E6E6;
+}
+
+.collapsible-body ul li span{
+	color : white;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.side-container{color: #E6E6E6;
+	text-align: center;
+	padding-top:10%;
+	padding-bottom: 10%;
+}
+
+.usr-container h4{
+	color: #ececec;
+	font-size: 1.5em;
+}
+
+.side-container img{
+	border-radius: 100%;
+	width: 30%;
+	margin-bottom: 10px;
+}
+
+/* THINGS */ 
+
+.main-content:first-child{
+	width: 100%;
+	margin: 0 auto;
+}
+
+.input-div{
+	margin: 0% 2% 2% 2%;
+	text-align: left;
+}
+
+.input-div img{
+    width: 70%;
+}

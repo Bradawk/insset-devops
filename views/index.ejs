@@ -1,0 +1,17 @@
+<% layout('layout') -%>
+<div class="content">
+    <div class="row" style="width:90%">
+        <h1> WoW mounts list</h1>
+        <ul class="collection">
+            <% data.mounts.forEach(function(mount) { %>
+                <li class="collection-item avatar">
+                <img src="https://wow.zamimg.com/images/wow/icons/large/<%= mount.icon %>.jpg" alt="" class="circle">
+                <h4 class="title"><%= mount.name %></h4>
+                <p><strong>Item id : </strong><%= mount.itemId %></br>
+                <strong>Is flying : </strong><%= mount.isFlying %>
+                </p>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+</div>

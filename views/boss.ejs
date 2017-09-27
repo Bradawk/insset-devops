@@ -1,0 +1,18 @@
+<% layout('layout') -%>
+<div class="content">
+    <div class="row" style="width:90%">
+        <h1> WoW bosses list</h1>
+        <ul class="collection">
+            <% data.bosses.forEach(function(boss) { %>
+                <li class="collection-item avatar">
+                <h4 class="title"><%= boss.name %></h4>
+                <p><strong>Description : </strong><%= boss.description %></p>
+                <p>
+                    <strong>Level : </strong><%= boss.level %> </br> 
+                    <strong>Health : </strong><%= boss.health %> </br>
+                </p>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+</div>

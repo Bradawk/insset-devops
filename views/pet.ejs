@@ -1,0 +1,21 @@
+<% layout('layout') -%>
+<div class="content">
+    <div class="row" style="width:90%">
+        <h1> WoW pets list</h1>
+        <ul class="collection">
+            <% data.pets.forEach(function(pet) { %>
+                <li class="collection-item avatar">
+                <img src="https://wow.zamimg.com/images/wow/icons/large/<%= pet.icon %>.jpg" alt="" class="circle">
+                <h4 class="title"><%= pet.name %></h4>
+                <p><strong>Creature id : </strong><%= pet.creatureId %></br>
+                <strong>Family : </strong> <%= pet.family %></br>
+                <strong>Health : </strong> <%= pet.stats.health %></br>
+                <strong>Weak Against : </strong> <%= pet.weakAgainst %></br>  
+                <strong>Strong Against : </strong> <%= pet.strongAgainst %></br>    
+                </p>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+
+</div>
