@@ -16,6 +16,9 @@ deploy:
       access_key_id: AKIAJNFAUHYHJLIATM4A
       secret_access_key:
         secure: jRhAp6PeH5PyO18iRvvbcQmuzR9J/bm4szwB0UVQ4avPIw+1YHPaxBNGo+OOX20ARlmDrnGrBjJKnGnN/SQJbiCABhBHXqGlspKTP0s8ndEkG/bwezCunsWMtZCSrghbmmFdVh5aBIwgVWkMDtVn2Rs8F0Dhzp5rr9ftwa/jBFA0ohUsGw9dRrUWsD8cAf0M/r0TN82GucSVBjULtFXawjY0M94Zz8Zm+KeYZP3dzE/3MFxieiJEnMXuK2+9JAOrfX1nFBeu+s5dIz6YT/WBaNivjjqdxwY92o0LWZpx9YVENeH0MkGrLSOXBFSE+gY9IlF0qtT4pLEKPv/tAtGx3jvNQRZaVIFfPYukdE/0l7AV9g8iqRsDwK85BvJTaT2pHBIjyclAyUys38qQvGU+uOlYgmp4kSJhburPOe99y2xijS6wJwu878rP31trRG2HVCYtWULiYibdjaLYdYwlPDI5iNBaCruAhaDEq7H9IGyAEOFaD1t4CPvSPWGa0DZtyoYRPXVKnJUmRTo49sceseDC1oqzKkdqZe/WUrnNGdUeja2bwEeZywlXOFDvRLO4U9HwEKVFSz6dwAeQq2TgkAqZ6unQogFYvp3DGZ9ivpow4OYxu0K29K8DkqM8yeslKL4c3j0Y/IQL5tU8xhgBJNtvopesArGra/tM3ComzII=
+      bucket: datamade-codedeploy
+      key: battle.net.zip
+      bundle_type: zip
       application: InssetDevops
       deployment_group: BradDeploymentGroup
       on:
