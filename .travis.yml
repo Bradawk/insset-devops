@@ -6,27 +6,20 @@ install:
 - npm install
 script:
 - npm test
-deploy:
-- region: eu-central-1
-- provider: s3
-    access_key_id: AKIAJNFAUHYHJLIATM4A
-    secret_access_key:
-      secure: jRhAp6PeH5PyO18iRvvbcQmuzR9J/bm4szwB0UVQ4avPIw+1YHPaxBNGo+OOX20ARlmDrnGrBjJKnGnN/SQJbiCABhBHXqGlspKTP0s8ndEkG/bwezCunsWMtZCSrghbmmFdVh5aBIwgVWkMDtVn2Rs8F0Dhzp5rr9ftwa/jBFA0ohUsGw9dRrUWsD8cAf0M/r0TN82GucSVBjULtFXawjY0M94Zz8Zm+KeYZP3dzE/3MFxieiJEnMXuK2+9JAOrfX1nFBeu+s5dIz6YT/WBaNivjjqdxwY92o0LWZpx9YVENeH0MkGrLSOXBFSE+gY9IlF0qtT4pLEKPv/tAtGx3jvNQRZaVIFfPYukdE/0l7AV9g8iqRsDwK85BvJTaT2pHBIjyclAyUys38qQvGU+uOlYgmp4kSJhburPOe99y2xijS6wJwu878rP31trRG2HVCYtWULiYibdjaLYdYwlPDI5iNBaCruAhaDEq7H9IGyAEOFaD1t4CPvSPWGa0DZtyoYRPXVKnJUmRTo49sceseDC1oqzKkdqZe/WUrnNGdUeja2bwEeZywlXOFDvRLO4U9HwEKVFSz6dwAeQq2TgkAqZ6unQogFYvp3DGZ9ivpow4OYxu0K29K8DkqM8yeslKL4c3j0Y/IQL5tU8xhgBJNtvopesArGra/tM3ComzII=
-    local_dir: dpl_cd_upload
-    skip_cleanup: true
-    on:
-      branch: master
-    bucket: aws-bucket-brad-niepceron
-- provider: codedeploy
-    access_key_id: AKIAJNFAUHYHJLIATM4A
-    secret_access_key:
-      secure: jRhAp6PeH5PyO18iRvvbcQmuzR9J/bm4szwB0UVQ4avPIw+1YHPaxBNGo+OOX20ARlmDrnGrBjJKnGnN/SQJbiCABhBHXqGlspKTP0s8ndEkG/bwezCunsWMtZCSrghbmmFdVh5aBIwgVWkMDtVn2Rs8F0Dhzp5rr9ftwa/jBFA0ohUsGw9dRrUWsD8cAf0M/r0TN82GucSVBjULtFXawjY0M94Zz8Zm+KeYZP3dzE/3MFxieiJEnMXuK2+9JAOrfX1nFBeu+s5dIz6YT/WBaNivjjqdxwY92o0LWZpx9YVENeH0MkGrLSOXBFSE+gY9IlF0qtT4pLEKPv/tAtGx3jvNQRZaVIFfPYukdE/0l7AV9g8iqRsDwK85BvJTaT2pHBIjyclAyUys38qQvGU+uOlYgmp4kSJhburPOe99y2xijS6wJwu878rP31trRG2HVCYtWULiYibdjaLYdYwlPDI5iNBaCruAhaDEq7H9IGyAEOFaD1t4CPvSPWGa0DZtyoYRPXVKnJUmRTo49sceseDC1oqzKkdqZe/WUrnNGdUeja2bwEeZywlXOFDvRLO4U9HwEKVFSz6dwAeQq2TgkAqZ6unQogFYvp3DGZ9ivpow4OYxu0K29K8DkqM8yeslKL4c3j0Y/IQL5tU8xhgBJNtvopesArGra/tM3ComzII=
-    bucket: aws-bucket-brad-niepceron
-    key: 'battle.net.zip'
-    application: InssetDevops
-    deployment_group: BradDeploymentGroup
-    on:
-      branch: master
+after_success: zip -r battle.net.zip .
 before_deploy:
 - mkdir -p dpl_cd_upload
-- mv . dpl_cd_upload/''
+- mv battle.net.zip dpl_cd_upload/battle.net.zip
+deploy:
+  region: eu-central-1
+  - provider: codedeploy
+      access_key_id: AKIAJNFAUHYHJLIATM4A
+      secret_access_key:
+        secure: jRhAp6PeH5PyO18iRvvbcQmuzR9J/bm4szwB0UVQ4avPIw+1YHPaxBNGo+OOX20ARlmDrnGrBjJKnGnN/SQJbiCABhBHXqGlspKTP0s8ndEkG/bwezCunsWMtZCSrghbmmFdVh5aBIwgVWkMDtVn2Rs8F0Dhzp5rr9ftwa/jBFA0ohUsGw9dRrUWsD8cAf0M/r0TN82GucSVBjULtFXawjY0M94Zz8Zm+KeYZP3dzE/3MFxieiJEnMXuK2+9JAOrfX1nFBeu+s5dIz6YT/WBaNivjjqdxwY92o0LWZpx9YVENeH0MkGrLSOXBFSE+gY9IlF0qtT4pLEKPv/tAtGx3jvNQRZaVIFfPYukdE/0l7AV9g8iqRsDwK85BvJTaT2pHBIjyclAyUys38qQvGU+uOlYgmp4kSJhburPOe99y2xijS6wJwu878rP31trRG2HVCYtWULiYibdjaLYdYwlPDI5iNBaCruAhaDEq7H9IGyAEOFaD1t4CPvSPWGa0DZtyoYRPXVKnJUmRTo49sceseDC1oqzKkdqZe/WUrnNGdUeja2bwEeZywlXOFDvRLO4U9HwEKVFSz6dwAeQq2TgkAqZ6unQogFYvp3DGZ9ivpow4OYxu0K29K8DkqM8yeslKL4c3j0Y/IQL5tU8xhgBJNtvopesArGra/tM3ComzII=
+      bucket: aws-bucket-brad-niepceron
+      key: battle.net.zip
+      bundle_type: zip
+      application: InssetDevops
+      deployment_group: BradDeploymentGroup
+      on:
+        repo: Bradawk/insset-devops
