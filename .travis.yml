@@ -7,6 +7,7 @@ install:
 script:
 - npm test
 deploy:
+- region: eu-central-1
 - provider: s3
     access_key_id: AKIAJNFAUHYHJLIATM4A
     secret_access_key: &1
@@ -14,17 +15,17 @@ deploy:
     local_dir: dpl_cd_upload
     skip_cleanup: true
     on:
-      repo: Bradawk/insset-devops
+      branch: master
     bucket: aws-bucket-brad-niepceron
 - provider: codedeploy
     access_key_id: AKIAJNFAUHYHJLIATM4A
     secret_access_key: *1
     bucket: aws-bucket-brad-niepceron
-    key: 'lastest.zip'
-    application: InssetDevops
+    key: 'latest.zip'
+    application: InssetDevop
     deployment_group: MyDeploymentGroup
     on:
-      repo: master
+      branch: master
 before_deploy:
 - mkdir -p dpl_cd_upload
 - mv . dpl_cd_upload/''
