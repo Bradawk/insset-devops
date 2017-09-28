@@ -5,8 +5,8 @@ install:
 - npm install
 script:
 - npm test
-after_success: zip -r battle.net.zip .
 before_deploy:
+- zip -r battle.net.zip .
 - mkdir -p dpl_cd_upload
 - mv battle.net.zip dpl_cd_upload/battle.net.zip
 deploy:
