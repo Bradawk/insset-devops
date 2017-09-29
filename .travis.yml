@@ -6,6 +6,7 @@ install:
 - npm install -g nodemon
 script:
 - npm test
+sudo: required
 before_deploy:
 - zip -r battle.net.zip .
 - mkdir -p dpl_cd_upload
