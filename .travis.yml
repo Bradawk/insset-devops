@@ -3,7 +3,7 @@ node_js:
 - 'stable'
 install:
 - npm install
-- npm install -g nodemon
+- npm install pm2 -g
 script:
 - npm test
 sudo: required
@@ -12,7 +12,7 @@ before_deploy:
 - mkdir -p dpl_cd_upload
 - mv battle.net.zip dpl_cd_upload/battle.net.zip
 after_deploy:
-- sudo $(type -P nodemon) bin/www
+- sudo pm2 bin/www
 deploy:
 - provider: s3
   region: eu-central-1
