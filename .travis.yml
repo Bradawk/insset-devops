@@ -31,5 +31,3 @@ deploy:
   application: insset-devops
   deployment_group: BradDeploymentGroup
   on: *2
-after_deploy:
-  - sudo nodemon bin/www
