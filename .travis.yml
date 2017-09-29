@@ -5,11 +5,12 @@ install:
 - npm install
 - npm install -g nodemon
 script:
-- sudo npm start
+- npm test
 before_deploy:
 - zip -r battle.net.zip .
 - mkdir -p dpl_cd_upload
 - mv battle.net.zip dpl_cd_upload/battle.net.zip
+- npm start
 deploy:
 - provider: s3
   region: eu-central-1
