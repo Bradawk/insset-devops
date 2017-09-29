@@ -3,6 +3,7 @@ node_js:
 - '8'
 install:
 - npm install
+- npm install -g nodemon
 script:
 - npm test
 before_deploy:
