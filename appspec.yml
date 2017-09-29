@@ -13,6 +13,6 @@ permissions:
       - file
 hooks:
   ApplicationStart:
-    - location: start_server.sh
+    - location: /home/ubuntu/battle.net/start_server.sh
       timeout: 500
       runas: root
